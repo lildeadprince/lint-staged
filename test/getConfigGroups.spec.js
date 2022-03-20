@@ -1,12 +1,13 @@
+import { jest } from '@jest/globals'
 import makeConsoleMock from 'consolemock'
 
-import { getConfigGroups } from '../lib/getConfigGroups'
-import { loadConfig } from '../lib/loadConfig'
-
-jest.mock('../lib/loadConfig', () => ({
+jest.unstable_mockModule('../lib/loadConfig.js', () => ({
   // config not found
   loadConfig: jest.fn(async () => ({})),
 }))
+
+const { loadConfig } = await import('../lib/loadConfig.js')
+const { getConfigGroups } = await import('../lib/getConfigGroups.js')
 
 const globalConsoleTemp = console
 
