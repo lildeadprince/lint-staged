@@ -25,7 +25,7 @@ describe.skip('lintStaged', () => {
   it('should pass quiet flag to Listr', async () => {
     expect.assertions(1)
     await lintStaged(
-      { configPath: path.join(__dirname, '__mocks__', 'my-config.json'), quiet: true },
+      { configPath: path.join(__dirname, 'fixtures', 'my-config.json'), quiet: true },
       makeConsoleMock()
     )
 
@@ -52,7 +52,7 @@ describe.skip('lintStaged', () => {
     expect.assertions(1)
     await lintStaged(
       {
-        configPath: path.join(__dirname, '__mocks__', 'my-config.json'),
+        configPath: path.join(__dirname, 'fixtures', 'my-config.json'),
         debug: true,
       },
       makeConsoleMock()
